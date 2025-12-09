@@ -8,12 +8,15 @@
     name="description"
     content="Satistica is a management, research and development consultancy providing systems engineering, data analytics and AI solutions for modern, intelligent and sustainable companies."
   />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
+
   <style>
     :root {
       --bg: #f5f7fb;
@@ -38,8 +41,7 @@
     }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: "Inter", sans-serif;
       background: radial-gradient(circle at top left, #e5edff 0, #f5f7fb 40%, #f9fafb 100%);
       color: var(--text);
       line-height: 1.6;
@@ -50,161 +52,106 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
     .container {
       width: min(1120px, 100% - 2.5rem);
-      margin: 0 auto;
+      margin: auto;
     }
 
-    /* header / nav */
+    /* HEADER */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(14px);
-      background: rgba(248, 250, 252, 0.9);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
     }
 
     .nav {
+      padding: 1rem 0;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.85rem 0;
-    }
-
-    .nav-left {
-      display: flex;
       align-items: center;
-      gap: 0.8rem;
     }
 
     .logo-mark {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #60a5fa, #2563eb 55%, #1d4ed8 100%);
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: #eff6ff;
+      align-items: center;
       font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.05),
-        0 14px 30px rgba(37, 99, 235, 0.45);
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
+      color: white;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
     }
 
     .logo-title {
-      font-weight: 650;
-      letter-spacing: 0.03em;
-      font-size: 1.1rem;
-      color: #0f172a;
-    }
-
-    .logo-subtitle {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-left: 0.8rem;
     }
 
     nav ul {
       display: flex;
-      align-items: center;
-      gap: 1.6rem;
-      list-style: none;
-      font-size: 0.9rem;
+      gap: 1.8rem;
+      font-size: 0.92rem;
     }
 
     nav a {
       color: var(--muted);
-      padding-bottom: 0.15rem;
       border-bottom: 2px solid transparent;
-      transition: color 0.18s ease, border-color 0.18s ease;
+      padding-bottom: 2px;
+      transition: 0.2s;
     }
 
     nav a:hover {
       color: var(--accent-strong);
-      border-color: rgba(37, 99, 235, 0.45);
+      border-color: var(--accent-strong);
     }
 
     .nav-contact {
-      padding: 0.6rem 1.15rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #f9fafb;
-      font-size: 0.85rem;
       font-weight: 500;
-      border: none;
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.05),
-        0 14px 30px rgba(37, 99, 235, 0.35);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.3);
     }
 
-    .nav-contact:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 820px) {
-      nav ul {
-        display: none;
-      }
-    }
-
-    /* hero */
+    /* HERO */
 
     .hero {
-      padding: var(--section-pad) 0 calc(var(--section-pad) - 1.5rem);
+      padding: var(--section-pad) 0;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: clamp(2rem, 4.5vw, 3rem);
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
       align-items: center;
     }
 
-    @media (max-width: 880px) {
+    @media (max-width: 900px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.3rem 0.75rem;
+      background: #fff;
+      padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 10px 28px rgba(148, 163, 184, 0.28);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 1.3rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.4rem;
     }
 
     .eyebrow-dot {
@@ -212,15 +159,14 @@
       height: 8px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.2);
+      margin-right: 0.5rem;
     }
 
     h1 {
-      font-size: clamp(2.1rem, 3.1vw, 2.7rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-size: 2.7rem;
+      font-weight: 700;
+      line-height: 1.2;
       margin-bottom: 1rem;
-      color: #020617;
     }
 
     h1 span {
@@ -228,722 +174,441 @@
     }
 
     .hero-subtitle {
-      font-size: 1rem;
       color: var(--muted);
-      max-width: 34rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      max-width: 540px;
       margin-bottom: 2rem;
-      font-size: 0.85rem;
     }
 
     .stat-pill {
-      padding: 0.4rem 0.85rem;
+      display: inline-block;
+      background: white;
+      padding: 0.45rem 0.9rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      box-shadow: var(--shadow-subtle);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+      border: 1px solid var(--border);
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
       color: var(--muted);
     }
 
     .stat-pill strong {
-      color: #0f172a;
-      font-weight: 600;
+      color: var(--text);
     }
 
     .hero-actions {
+      margin-top: 1rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 1.2rem;
+      gap: 1rem;
     }
 
     .btn-primary {
-      padding: 0.9rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.9rem 1.4rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #f9fafb;
-      font-weight: 550;
-      font-size: 0.95rem;
-      border: none;
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.05),
-        0 16px 40px rgba(37, 99, 235, 0.4);
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
     }
 
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      padding: 0.85rem 1.3rem;
+    .btn-secondary {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.85rem 1.4rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent-strong);
-      color: var(--accent-strong);
+      font-weight: 600;
     }
 
     .hero-note {
-      font-size: 0.83rem;
       color: var(--muted);
+      margin-top: 1rem;
+      font-size: 0.9rem;
     }
 
     .hero-note span {
       color: var(--accent-strong);
-      font-weight: 500;
     }
 
-    /* hero side card */
+    /* RIGHT HERO PANEL */
 
     .hero-panel {
+      background: white;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      background: var(--bg-soft);
-      border: 1px solid rgba(209, 213, 219, 0.9);
+      padding: 1.6rem;
       box-shadow: var(--shadow-soft);
-      padding: 1.7rem 1.6rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: -15%;
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 55%),
-        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 55%);
-      opacity: 0.95;
-      pointer-events: none;
-    }
-
-    .hero-panel-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .panel-tag {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
     }
 
     .panel-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.7rem;
-      color: #0f172a;
-    }
-
-    .panel-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 520px) {
-      .panel-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      font-weight: 700;
+      margin-bottom: 0.9rem;
     }
 
     .panel-list {
-      list-style: none;
-      font-size: 0.86rem;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
       color: var(--muted);
-      display: grid;
-      gap: 0.3rem;
+      font-size: 0.92rem;
     }
 
-    .panel-list li::before {
-      content: "• ";
+    .panel-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .panel-box {
+      background: #eff6ff;
+      border-radius: var(--radius-md);
+      border: 1px solid #bfdbfe;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .panel-box-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
       color: var(--accent-strong);
     }
 
-    .panel-stat-card {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(191, 219, 254, 0.9);
-      background: rgba(239, 246, 255, 0.82);
-      padding: 0.95rem 0.95rem 0.9rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .panel-stat-main {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      color: #1d4ed8;
-    }
-
-    .panel-stat-sub {
-      font-size: 0.8rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .panel-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
     .chip {
-      padding: 0.18rem 0.6rem;
+      display: inline-block;
+      border: 1px solid #bfdbfe;
+      padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(191, 219, 254, 0.9);
-      font-size: 0.72rem;
-      color: #1d4ed8;
-      font-weight: 500;
+      font-size: 0.75rem;
+      margin-right: 0.4rem;
+      margin-top: 0.4rem;
+      color: #1e40af;
+      background: white;
     }
 
-    /* sections */
+    /* SECTION */
 
     section {
       padding: var(--section-pad) 0;
     }
 
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 2rem;
-      margin-bottom: 1.8rem;
-    }
-
     .section-title {
-      font-size: 1.4rem;
-      font-weight: 650;
-      letter-spacing: -0.01em;
-      color: #020617;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
     .section-subtitle {
-      font-size: 0.9rem;
       color: var(--muted);
-      max-width: 28rem;
-    }
-
-    @media (max-width: 720px) {
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      max-width: 480px;
+      margin-bottom: 2rem;
     }
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.4rem;
     }
 
-    @media (max-width: 960px) {
-      .cards-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .cards-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
     .card {
-      background: var(--bg-soft);
-      border-radius: var(--radius-md);
+      background: white;
       border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
       box-shadow: var(--shadow-subtle);
-      padding: 1.3rem 1.3rem 1.1rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      background: radial-gradient(circle at top right, var(--accent-soft), transparent 60%);
-      pointer-events: none;
-    }
-
-    .card-inner {
-      position: relative;
-      z-index: 1;
     }
 
     .card-label {
-      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      font-size: 0.75rem;
       color: var(--muted);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .card-title {
-      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: #0f172a;
     }
 
     .card-body {
-      font-size: 0.9rem;
       color: var(--muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
     }
 
     .card-list {
-      list-style: none;
-      font-size: 0.86rem;
+      padding-left: 1rem;
       color: var(--muted);
-      display: grid;
-      gap: 0.25rem;
-    }
-
-    .card-list li::before {
-      content: "– ";
-      color: var(--accent-strong);
-    }
-
-    /* applications layout */
-
-    .applications-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      .applications-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .applications-text {
-      font-size: 0.94rem;
-      color: var(--muted);
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .highlight-box {
-      background: #eff6ff;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(191, 219, 254, 0.9);
-      padding: 1.05rem 1.2rem 1rem;
       font-size: 0.9rem;
-      color: var(--muted);
-      box-shadow: var(--shadow-subtle);
     }
 
-    .highlight-box strong {
-      color: #0f172a;
-    }
+    /* CONTACT */
 
-    /* contact */
-
-    .contact-section {
-      padding-bottom: 3rem;
-    }
-
-    .contact-inner {
+    .contact-box {
+      background: white;
       border-radius: var(--radius-lg);
-      background: #ffffff;
       border: 1px solid var(--border);
+      padding: 1.6rem;
       box-shadow: var(--shadow-soft);
-      padding: 1.7rem 1.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .contact-text h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: #020617;
-    }
-
-    .contact-text p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 26rem;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      align-items: flex-end;
-      font-size: 0.86rem;
-    }
-
-    .email-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.7rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      background: #f9fafb;
-      color: #0f172a;
-      font-weight: 500;
-    }
-
-    .email-link span:first-child {
-      font-size: 1.05rem;
-    }
-
-    @media (max-width: 640px) {
-      .contact-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .contact-actions {
-        align-items: flex-start;
-      }
     }
 
     footer {
-      border-top: 1px solid rgba(226, 232, 240, 0.9);
-      padding: 1rem 0 1.5rem;
-      font-size: 0.8rem;
+      padding: 1.5rem 0;
+      text-align: center;
       color: var(--muted);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border);
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="container nav">
-        <div class="nav-left">
-          <div class="logo-mark">S</div>
-          <div class="logo-text">
-            <span class="logo-title">Satistica</span>
-            <span class="logo-subtitle">systems engineering & analytics</span>
-          </div>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#expertise">expertise</a></li>
-            <li><a href="#applications">applications</a></li>
-            <li><a href="#special-areas">special areas</a></li>
-            <li><a href="#contact">contact</a></li>
-          </ul>
-        </nav>
-        <a class="nav-contact" href="mailto:admin@satistica.com">contact us</a>
-      </div>
-    </header>
 
-    <main>
-      <!-- hero -->
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="eyebrow">
-              <span class="eyebrow-dot"></span>
-              <span>management, systems engineering and data</span>
-            </div>
-            <h1>
-              management, research and development consultancy for
-              <span>modern, intelligent and sustainable companies</span>.
-            </h1>
-            <p class="hero-subtitle">
-              Satistica provides systems engineering, management and advanced analytics
-              for organisations that want stronger performance, sustainability and
-              clear compliance evidence.
-            </p>
+<header>
+  <div class="container nav">
+    <div style="display: flex; align-items: center;">
+      <div class="logo-mark">S</div>
+      <div class="logo-title">Satistica</div>
+    </div>
 
-            <div class="hero-stats">
-              <div class="stat-pill">
-                <strong>since 1997</strong> deeply rooted academic and industrial work
-              </div>
-              <div class="stat-pill">
-                <strong>£350M+</strong> project portfolio in funded R&amp;D
-              </div>
-              <div class="stat-pill">
-                sensors · digitalisation · signal processing · ML · AI
-              </div>
-            </div>
+    <nav>
+      <ul>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#applications">Applications</a></li>
+        <li><a href="#special">Special areas</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-            <div class="hero-actions">
-              <a class="btn-primary" href="mailto:admin@satistica.com">email the team</a>
-              <a class="btn-ghost" href="#expertise">view our capabilities</a>
-            </div>
-
-            <p class="hero-note">
-              we can be your reliable <span>R&amp;D partner</span> – from technology
-              solutions to certified reports for internal use or authorities.
-            </p>
-          </div>
-
-          <aside class="hero-panel" aria-label="Satistica focus areas">
-            <div class="hero-panel-inner">
-              <div class="panel-tag">what we focus on</div>
-              <div class="panel-title">
-                systems-level support from sensors to decision-making.
-              </div>
-              <div class="panel-grid">
-                <ul class="panel-list">
-                  <li>sensors and actuation</li>
-                  <li>digitalisation and industrial data</li>
-                  <li>advanced signal processing and analytics</li>
-                  <li>machine learning and artificial intelligence</li>
-                  <li>machine tools, discrete and process engineering</li>
-                </ul>
-                <div class="panel-stat-card">
-                  <div class="panel-stat-main">global funding reach</div>
-                  <div class="panel-stat-sub">
-                    experience in UK national funding, EU Horizon and other European
-                    programmes, USA, international and public–private initiatives.
-                  </div>
-                  <div class="panel-chips">
-                    <span class="chip">consortium design</span>
-                    <span class="chip">bid and proposal writing</span>
-                    <span class="chip">network of experts</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <!-- expertise -->
-      <section id="expertise">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">our expertise</h2>
-            </div>
-            <p class="section-subtitle">
-              we connect technical depth with management insight – designing,
-              validating and documenting solutions for engineers, managers and
-              authorities.
-            </p>
-          </div>
-
-          <div class="cards-grid">
-            <article class="card">
-              <div class="card-inner">
-                <div class="card-label">technology solutions</div>
-                <h3 class="card-title">performance, sustainability and compliance</h3>
-                <p class="card-body">
-                  we design and refine technology solutions that address performance,
-                  environmental and regulatory objectives in a coherent way.
-                </p>
-                <ul class="card-list">
-                  <li>performance analysis and optimisation</li>
-                  <li>sustainability and environmental indicators</li>
-                  <li>compliance frameworks embedded in design</li>
-                  <li>support for industrial deployment</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="card-inner">
-                <div class="card-label">funding and bids</div>
-                <h3 class="card-title">consortia and proposal development</h3>
-                <p class="card-body">
-                  if you are bidding for funding, we bring extensive experience in
-                  organising consortia and writing competitive proposals.
-                </p>
-                <ul class="card-list">
-                  <li>organising and structuring consortia</li>
-                  <li>work-plan and work-package design</li>
-                  <li>bid and proposal writing and reviewing</li>
-                  <li>UK, EU Horizon, USA and international calls</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="card-inner">
-                <div class="card-label">documentation</div>
-                <h3 class="card-title">professional and certified reports</h3>
-                <p class="card-body">
-                  we generate professional reports for internal use and for
-                  authorities, aligned with technical, economic and environmental needs.
-                </p>
-                <ul class="card-list">
-                  <li>technical and technology evaluation reports</li>
-                  <li>economic and environmental assessments</li>
-                  <li>evidence-based performance and compliance reporting</li>
-                  <li>audit and review support</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- applications -->
-      <section id="applications">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">applications and clients</h2>
-            </div>
-            <p class="section-subtitle">
-              we work with micro enterprises, SMEs and large multi-national
-              enterprises, either alongside internal teams or as an external R&amp;D
-              partner.
-            </p>
-          </div>
-
-          <div class="applications-layout">
-            <div class="applications-text">
-              <p>
-                no matter if you are a micro enterprise or a large multi-national
-                enterprise with your own internal capabilities, there may be cases
-                where you want to out-source niche expertise or extra brain power to
-                complete a task or project.
-              </p>
-              <p>
-                we can step in for focused analytical work, systems modelling,
-                technology evaluation, or broader work-package leadership in complex
-                multi-partner settings.
-              </p>
-              <p>
-                our experience spans sensors and actuation, digitalisation, advanced
-                signal processing, data analytics, machine learning, artificial
-                intelligence and industrial engineering systems.
-              </p>
-            </div>
-
-            <div class="highlight-box">
-              <strong>no work is too small or too big.</strong>
-              <br /><br />
-              contact us and we can agree a reasonable and economically effective way
-              to accelerate your work and improve the quality of your outcomes.
-              <br /><br />
-              we are used to operating with strict deadlines, technical complexity and
-              multi-organisational collaboration.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- special areas -->
-      <section id="special-areas">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">special areas</h2>
-            </div>
-            <p class="section-subtitle">
-              our base team is particularly experienced in manufacturing, industrial
-              systems and data-driven intelligence for engineering applications.
-            </p>
-          </div>
-
-          <div class="cards-grid">
-            <article class="card">
-              <div class="card-inner">
-                <div class="card-label">industrial systems</div>
-                <h3 class="card-title">manufacturing and process engineering</h3>
-                <ul class="card-list">
-                  <li>manufacturing and process engineering systems</li>
-                  <li>machine tools and smartification</li>
-                  <li>sensors and material treatment</li>
-                  <li>structural integrity</li>
-                  <li>maintenance and resource planning</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="card-inner">
-                <div class="card-label">data and intelligence</div>
-                <h3 class="card-title">signal processing, data analytics and AI</h3>
-                <ul class="card-list">
-                  <li>advanced signal processing and feature extraction</li>
-                  <li>data analytics, machine learning and artificial intelligence</li>
-                  <li>modelling and simulation – digital twins</li>
-                  <li>adding smart and new features to existing solutions</li>
-                  <li>decision support and health monitoring</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="card-inner">
-                <div class="card-label">evaluation</div>
-                <h3 class="card-title">technology evaluation reports</h3>
-                <ul class="card-list">
-                  <li>technical, economic and environmental evaluation</li>
-                  <li>independent second-opinion and benchmarking</li>
-                  <li>support for investment and funding decisions</li>
-                  <li>clear narratives for boards and authorities</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- contact -->
-      <section class="contact-section" id="contact">
-        <div class="container">
-          <div class="contact-inner">
-            <div class="contact-text">
-              <h3>contact satistica</h3>
-              <p>
-                if you would like to discuss a project, a funding opportunity or a
-                specific technical question, send us an email and we will reply with a
-                clear next step.
-              </p>
-            </div>
-            <div class="contact-actions">
-              <a class="email-link" href="mailto:admin@satistica.com">
-                <span>✉</span>
-                <span>admin@satistica.com</span>
-              </a>
-              <span>primary contact for enquiries, collaborations and bids.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-inner">
-        <span>© Satistica. all rights reserved.</span>
-        <span>systems engineering · data analytics · AI for modern industry</span>
-      </div>
-    </footer>
+    <a class="nav-contact" href="mailto:admin@satistica.com">Contact us</a>
   </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    
+    <div>
+      <div class="eyebrow">
+        <div class="eyebrow-dot"></div>
+        Management, systems engineering and data
+      </div>
+
+      <h1>
+        Management, research and development consultancy for <span>modern, intelligent and sustainable companies.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Satistica provides systems engineering, management and advanced analytics for organisations that want stronger performance, sustainability and clear compliance evidence.
+      </p>
+
+      <div>
+        <div class="stat-pill"><strong>Since 1997</strong> deeply rooted academic and industrial work</div>
+        <div class="stat-pill"><strong>£350M+</strong> project portfolio in funded R&D</div>
+        <div class="stat-pill">Sensors · digitalisation · signal processing · ML · AI</div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="mailto:admin@satistica.com">Email the team</a>
+        <a class="btn-secondary" href="#expertise">View our capabilities</a>
+      </div>
+
+      <p class="hero-note">
+        We can be your reliable <span>R&D partner</span> – from technology solutions to certified reports for internal use or authorities.
+      </p>
+    </div>
+
+    <!-- Right panel -->
+    <div class="hero-panel">
+      <div class="panel-title">What we focus on</div>
+      <p><strong>Systems-level support from sensors to decision-making.</strong></p>
+
+      <ul class="panel-list">
+        <li>Sensors and actuation</li>
+        <li>Digitalisation and industrial data</li>
+        <li>Advanced signal processing and analytics</li>
+        <li>Machine learning and artificial intelligence</li>
+        <li>Machine tools, discrete and process engineering</li>
+      </ul>
+
+      <div class="panel-box">
+        <div class="panel-box-title">Global funding reach</div>
+        <p style="font-size: 0.9rem; color: #475569;">
+          Experience in UK national funding, EU Horizon and other European programmes, USA, international and public–private initiatives.
+        </p>
+
+        <div>
+          <span class="chip">Consortium design</span>
+          <span class="chip">Bid and proposal writing</span>
+          <span class="chip">Network of experts</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="container">
+    <h2 class="section-title">Our expertise</h2>
+    <p class="section-subtitle">
+      We connect technical depth with management insight – designing, validating and documenting solutions for engineers, managers and authorities.
+    </p>
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-label">Technology solutions</div>
+        <div class="card-title">Performance, sustainability and compliance</div>
+        <div class="card-body">
+          We design and refine technology solutions that address performance, environmental and regulatory objectives in a coherent way.
+        </div>
+        <ul class="card-list">
+          <li>Performance analysis and optimisation</li>
+          <li>Sustainability and environmental indicators</li>
+          <li>Compliance frameworks embedded in design</li>
+          <li>Support for industrial deployment</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Funding and bids</div>
+        <div class="card-title">Consortia and proposal development</div>
+        <div class="card-body">
+          If you are bidding for funding, we bring extensive experience in organising consortia and writing competitive proposals.
+        </div>
+        <ul class="card-list">
+          <li>Organising and structuring consortia</li>
+          <li>Work-plan and work-package design</li>
+          <li>Bid and proposal writing and reviewing</li>
+          <li>UK, EU Horizon, USA and international calls</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Documentation</div>
+        <div class="card-title">Professional and certified reports</div>
+        <div class="card-body">
+          We generate professional reports for internal use and for authorities, aligned with technical, economic and environmental needs.
+        </div>
+        <ul class="card-list">
+          <li>Technical and technology evaluation reports</li>
+          <li>Economic and environmental assessments</li>
+          <li>Evidence-based performance and compliance reporting</li>
+          <li>Audit and review support</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="applications">
+  <div class="container">
+
+    <h2 class="section-title">Applications and clients</h2>
+
+    <p class="section-subtitle">
+      We work with micro enterprises, SMEs and large multi-national enterprises, either alongside internal teams or as an external R&D partner.
+    </p>
+
+    <p style="max-width: 700px; margin-bottom: 1.3rem; color: var(--muted);">
+      No matter if you are a micro enterprise or a large multi-national enterprise with your own internal capabilities, there may be cases where you want to out-source niche expertise or extra brain power to complete a task or project.
+    </p>
+
+    <p style="max-width: 700px; margin-bottom: 1.3rem; color: var(--muted);">
+      We can step in for focused analytical work, systems modelling, technology evaluation, or broader work-package leadership in complex multi-partner settings.
+    </p>
+
+    <p style="max-width: 700px; margin-bottom: 2rem; color: var(--muted);">
+      Our experience spans sensors and actuation, digitalisation, advanced signal processing, data analytics, machine learning, artificial intelligence and industrial engineering systems.
+    </p>
+
+    <div class="panel-box" style="max-width: 420px;">
+      <div class="panel-box-title">No work is too small or too big.</div>
+      <p style="font-size: 0.9rem; color: #475569;">
+        Contact us and we can agree a reasonable and economically effective way to accelerate your work and improve the quality of your outcomes.
+      </p>
+      <p style="font-size: 0.9rem; color: #475569; margin-top: 0.6rem;">
+        We are used to operating with strict deadlines, technical complexity and multi-organisational collaboration.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="special">
+  <div class="container">
+    <h2 class="section-title">Special areas</h2>
+
+    <p class="section-subtitle">
+      Our base team is particularly experienced in manufacturing, industrial systems and data-driven intelligence for engineering applications.
+    </p>
+
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-label">Industrial systems</div>
+        <div class="card-title">Manufacturing and process engineering</div>
+        <ul class="card-list">
+          <li>Manufacturing and process engineering systems</li>
+          <li>Machine tools and smartification</li>
+          <li>Sensors and material treatment</li>
+          <li>Structural integrity</li>
+          <li>Maintenance and resource planning</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Data and intelligence</div>
+        <div class="card-title">Signal processing, data analytics and AI</div>
+        <ul class="card-list">
+          <li>Advanced signal processing and feature extraction</li>
+          <li>Data analytics, machine learning and artificial intelligence</li>
+          <li>Modelling and simulation – digital twins</li>
+          <li>Adding smart and new features to existing solutions</li>
+          <li>Decision support and health monitoring</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Evaluation</div>
+        <div class="card-title">Technology evaluation reports</div>
+        <ul class="card-list">
+          <li>Technical, economic and environmental evaluation</li>
+          <li>Independent second-opinion and benchmarking</li>
+          <li>Support for investment and funding decisions</li>
+          <li>Clear narratives for boards and authorities</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2 style="margin-bottom: 0.7rem;">Contact Satistica</h2>
+      <p style="color: var(--muted); max-width: 600px;">
+        If you would like to discuss a project, a funding opportunity or a specific technical question, send us an email and we will reply with a clear next step.
+      </p>
+
+      <div style="margin-top: 1rem;">
+        <a href="mailto:admin@satistica.com" style="
+          display:inline-flex; align-items:center;
+          background:#f9fafb; padding:0.7rem 1.1rem;
+          border-radius:999px; border:1px solid var(--border);
+          font-weight:500; color:#0f172a;">
+          ✉ admin@satistica.com
+        </a>
+        <p style="margin-top: 0.4rem; color: var(--muted); font-size: 0.9rem;">
+          Primary contact for enquiries, collaborations and bids.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © Satistica. All rights reserved.  
+    <br>Systems engineering · data analytics · AI for modern industry
+  </div>
+</footer>
+
 </body>
 </html>
