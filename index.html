@@ -1,98 +1,948 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <title>Satistica – systems engineering, data and AI consultancy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Satistica — under construction</title>
-  <meta name="description" content="Satistica — site under construction. Get in touch at info@satistica.com." />
-  <meta property="og:title" content="Satistica — under construction" />
-  <meta property="og:description" content="Get in touch at info@satistica.com." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0e1117" />
+  <meta
+    name="description"
+    content="Satistica is a management, research and development consultancy providing systems engineering, data analytics and AI solutions for modern, intelligent and sustainable companies."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    :root{
-      --bg1:#0e1117;      /* near-black */
-      --bg2:#1b2333;      /* deep blue */
-      --accent:#66e0a3;   /* mint */
-      --text:#e6e8ee;
-      --muted:#aab2c5;
-      --card:#141a24;
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1220;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-strong: #0ea5e9;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: rgba(148, 163, 184, 0.25);
+      --danger: #f97373;
+      --section-pad: clamp(3rem, 6vw, 5rem);
+      --radius-lg: 1.75rem;
+      --radius-md: 1rem;
+      --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.85);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 800px at 80% -10%, #20314d40, transparent),
-                  radial-gradient(900px 600px at -10% 110%, #1f4d3b40, transparent),
-                  linear-gradient(135deg, var(--bg1), var(--bg2));
-      display:flex; align-items:center; justify-content:center;
-      padding:32px;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .card{
-      width:min(680px,100%);
-      background: color-mix(in srgb, var(--card) 92%, black 8%);
-      border:1px solid #2a3446;
-      border-radius:20px;
-      padding:40px 32px;
-      text-align:center;
-      box-shadow: 0 20px 60px #0007, inset 0 1px 0 #ffffff10;
+
+    html,
+    body {
+      height: 100%;
+      scroll-behavior: smooth;
     }
-    .logo{
-      display:inline-flex; align-items:center; gap:12px;
-      margin-bottom:10px; user-select:none;
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .logo-icon{
-      width:38px; height:38px; border-radius:12px;
-      background: conic-gradient(from 210deg, var(--accent), #7ad9ff, #b89cff, var(--accent));
-      box-shadow: 0 8px 22px #66e0a355, inset 0 0 0 1px #ffffff30;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    h1{
-      margin:6px 0 8px; font-size:2.2rem; letter-spacing:.2px;
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    p{margin:8px 0; color:var(--muted); font-size:1.05rem; line-height:1.6}
-    .pill{
-      display:inline-block; margin-top:18px; padding:10px 16px;
-      background:#0f1420; border:1px solid #2a3446; border-radius:999px; color:var(--text);
+
+    .container {
+      width: min(1120px, 100% - 2.5rem);
+      margin: 0 auto;
     }
-    .cta{
-      display:inline-flex; align-items:center; gap:10px; margin-top:22px;
-      padding:12px 18px; border-radius:12px; border:1px solid #2a3446;
-      background: linear-gradient(180deg, #172133, #121a29);
-      text-decoration:none; color:var(--text); font-weight:600;
-      box-shadow: 0 6px 18px #0006;
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.92),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     }
-    .cta:hover{border-color:#3a4760; transform:translateY(-1px)}
-    .foot{margin-top:26px; font-size:.9rem; color:#94a0b8}
-    @media (prefers-reduced-motion:no-preference){
-      .logo-icon{animation:spin 14s linear infinite}
-      @keyframes spin{from{transform:rotate(0)} to{transform:rotate(360deg)}}
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9 45%, #1d4ed8 90%);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.8),
+        0 18px 55px rgba(59, 130, 246, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5f3ff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-text span:first-child {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .logo-text span:last-child {
+      font-weight: 600;
+      font-size: 1.02rem;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      padding-bottom: 0.1rem;
+      border-bottom: 1px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .nav-contact {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e5f3ff;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.3), transparent 55%);
+    }
+
+    .nav-contact:hover {
+      border-color: var(--accent-strong);
+      color: #f9fafb;
+    }
+
+    /* hero */
+
+    .hero {
+      padding: 3.5rem 0 var(--section-pad);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 3rem);
+      align-items: center;
+    }
+
+    @media (max-width: 840px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        position: static;
+      }
+
+      .nav ul {
+        display: none;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at left top, rgba(56, 189, 248, 0.25), transparent 60%);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 1.5rem;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.2rem;
+      font-size: 0.82rem;
+    }
+
+    .badge {
+      padding: 0.32rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.92rem;
+      border: none;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.85),
+        0 18px 50px rgba(34, 197, 94, 0.6);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      padding: 0.78rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-note span {
+      color: var(--accent);
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #111827 0, #020617 60%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.22), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-panel-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .panel-title {
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-bottom: 0.7rem;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 480px) {
+      .panel-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .panel-list li::before {
+      content: "•";
+      margin-right: 0.4rem;
+      color: var(--accent);
+    }
+
+    .panel-stat-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      padding: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .panel-stat-main {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #e5f3ff;
+      margin-bottom: 0.2rem;
+    }
+
+    .panel-stat-sub {
+      font-size: 0.78rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* sections */
+
+    section {
+      padding: var(--section-pad) 0;
+      border-top: 1px solid rgba(15, 23, 42, 0.8);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 28rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 960px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
+      padding: 1.1rem 1.1rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 55%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .card-list {
+      list-style: none;
+      margin-top: 0.45rem;
+      display: grid;
+      gap: 0.28rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .card-list li::before {
+      content: "– ";
+      color: var(--accent);
+    }
+
+    /* applications section */
+
+    .applications-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 840px) {
+      .applications-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .applications-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .highlight-box {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1rem 1.1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+    }
+
+    .highlight-box strong {
+      color: var(--text);
+    }
+
+    /* contact */
+
+    .contact-section {
+      padding-bottom: 3rem;
+    }
+
+    .contact-inner {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617 0, #020617 50%, #020617 100%);
+      padding: 1.8rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-text h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: flex-end;
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 640px) {
+      .contact-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-actions {
+        align-items: flex-start;
+      }
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5f3ff;
+    }
+
+    .email-link span:first-child {
+      font-size: 1.05rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      padding: 1rem 0 1.6rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="title">
-    <div class="logo" aria-hidden="true">
-      <div class="logo-icon"></div>
-      <strong style="font-size:1.05rem; letter-spacing:.5px;">Satistica</strong>
-    </div>
+  <div class="page">
+    <header>
+      <div class="container nav">
+        <div class="logo-mark">
+          <div class="logo-icon">S</div>
+          <div class="logo-text">
+            <span>systems & analytics</span>
+            <span>Satistica</span>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#applications">Applications</a></li>
+            <li><a href="#special-areas">Special areas</a></li>
+          </ul>
+          <a class="nav-contact" href="mailto:admin@satistica.com">Contact us</a>
+        </nav>
+      </div>
+    </header>
 
-    <h1 id="title">Site under construction</h1>
-    <p>We’re building something useful. In the meantime, drop us a line.</p>
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>systems engineering, data and AI</span>
+            </div>
+            <h1>
+              Management, research and development consultancy for
+              <span>modern, intelligent and sustainable companies</span>.
+            </h1>
+            <p class="hero-subtitle">
+              Satistica provides systems engineering, management and advanced
+              analytics support for organisations that want robust performance,
+              stronger sustainability and clear compliance evidence.
+            </p>
 
-    <span class="pill">contact</span><br />
-    <a class="cta" href="mailto:admin@satistica.com" aria-label="Email Satistica">
-      admin@satistica.com
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4 6l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <rect x="4" y="6" width="16" height="12" rx="2" ry="2" stroke="currentColor" stroke-width="1.8" fill="none"/>
-      </svg>
-    </a>
+            <div class="hero-badges">
+              <div class="badge">
+                <strong>since 1997</strong>
+                academic and industrial track record
+              </div>
+              <div class="badge">
+                <strong>£350M+</strong>
+                project portfolio value
+              </div>
+              <div class="badge">
+                sensors &amp; actuation · digitalisation · ML &amp; AI
+              </div>
+            </div>
 
-    <div class="foot">© <span id="y"></span> Satistica</div>
-  </main>
+            <div class="hero-actions">
+              <a class="btn-primary" href="mailto:admin@satistica.com">
+                Email the team
+              </a>
+              <a class="btn-ghost" href="#expertise">
+                View our capabilities
+              </a>
+            </div>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+            <p class="hero-note">
+              We can be your reliable <span>R&amp;D partner</span> – from
+              technology solutions to certified reports for internal use or
+              authorities.
+            </p>
+          </div>
+
+          <aside class="hero-panel" aria-label="Satistica focus areas">
+            <div class="hero-panel-inner">
+              <div class="panel-tag">What we do</div>
+              <div class="panel-title">
+                Systems-level support from sensors to strategy.
+              </div>
+              <div class="panel-grid">
+                <ul class="panel-list">
+                  <li>Sensors and actuation</li>
+                  <li>Digitalisation and Industry 4.0</li>
+                  <li>Advanced signal processing and data analytics</li>
+                  <li>Machine learning and artificial intelligence</li>
+                  <li>Machine tools, discrete and process engineering</li>
+                </ul>
+                <div class="panel-stat-card">
+                  <div class="panel-stat-main">Global funding reach</div>
+                  <div class="panel-stat-sub">
+                    Experience in UK national calls, EU Horizon and other EU
+                    programmes, USA and international public–private initiatives.
+                  </div>
+                  <div class="pill-row">
+                    <span class="pill">Consortium design</span>
+                    <span class="pill">Bid and proposal writing</span>
+                    <span class="pill">Network of experts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- expertise -->
+      <section id="expertise">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Our expertise</h2>
+            </div>
+            <p class="section-subtitle">
+              We connect technical depth with strategic understanding. This
+              means we can design, validate and document solutions that are ready
+              for both engineering teams and decision-makers.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-inner">
+                <div class="card-label">technology solutions</div>
+                <h3 class="card-title">Performance, sustainability and compliance</h3>
+                <p class="card-body">
+                  We build and refine technical solutions and formal reports that
+                  give a clear view of system performance, sustainability
+                  metrics and regulatory compliance.
+                </p>
+                <ul class="card-list">
+                  <li>Technology development and validation</li>
+                  <li>Performance analysis and optimisation</li>
+                  <li>Sustainability and environmental indicators</li>
+                  <li>Compliance-focused documentation</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-inner">
+                <div class="card-label">funding and bids</div>
+                <h3 class="card-title">Consortium and proposal support</h3>
+                <p class="card-body">
+                  We bring extensive experience in structuring collaborations and
+                  writing competitive proposals across multiple funding schemes.
+                </p>
+                <ul class="card-list">
+                  <li>Concept and work-plan development</li>
+                  <li>Consortium and network formation</li>
+                  <li>Bid and proposal writing and review</li>
+                  <li>UK, EU Horizon, USA and international programmes</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-inner">
+                <div class="card-label">reporting</div>
+                <h3 class="card-title">Professional and certified reports</h3>
+                <p class="card-body">
+                  We prepare structured, auditable documentation tailored to
+                  internal use, authorities and funding agencies.
+                </p>
+                <ul class="card-list">
+                  <li>Technical evaluation reports</li>
+                  <li>Economic and environmental assessments</li>
+                  <li>Risk, performance and compliance reporting</li>
+                  <li>Support for audits and reviews</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- applications -->
+      <section id="applications">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Applications and clients</h2>
+            </div>
+            <p class="section-subtitle">
+              We work with micro enterprises, SMEs and large multinationals. Our
+              role can range from niche technical input to full work-package
+              leadership.
+            </p>
+          </div>
+
+          <div class="applications-layout">
+            <div class="applications-text">
+              <p>
+                Whether you are a micro enterprise or a large multi-national
+                company with internal capabilities, there are times when you may
+                want to out-source niche expertise or extra brain power to
+                complete a task or project.
+              </p>
+              <p>
+                Satistica joins your team where you need us most: from targeted
+                analytics or modelling to end-to-end systems engineering and
+                project-level coordination.
+              </p>
+              <p>
+                We are comfortable working inside existing processes or helping
+                you define new ones. Our focus is always on practical and
+                transparent delivery.
+              </p>
+            </div>
+
+            <div class="highlight-box">
+              <strong>No work is too small or too big.</strong>
+              <br /><br />
+              Contact us and we can discuss a reasonable and economically
+              effective way to accelerate your activities and improve the
+              quality of your projects.
+              <br /><br />
+              We are used to operating in environments with strict deadlines,
+              technical complexity and multi-partner coordination.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- special areas -->
+      <section id="special-areas">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Special areas</h2>
+            </div>
+            <p class="section-subtitle">
+              Our core team is particularly experienced in advanced manufacturing,
+              intelligent systems and analytics for industrial contexts.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <div class="card-inner">
+                <div class="card-label">industrial systems</div>
+                <h3 class="card-title">Manufacturing and process engineering</h3>
+                <ul class="card-list">
+                  <li>Manufacturing and process engineering systems</li>
+                  <li>Machine tools and smartification</li>
+                  <li>Sensors and material treatment</li>
+                  <li>Structural integrity</li>
+                  <li>Maintenance and resource planning</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-inner">
+                <div class="card-label">data and intelligence</div>
+                <h3 class="card-title">Signal processing, data and AI</h3>
+                <ul class="card-list">
+                  <li>Signal processing and feature extraction</li>
+                  <li>Data analytics, machine learning and AI</li>
+                  <li>Modelling and simulation – digital twins</li>
+                  <li>Adding smart and new features to existing systems</li>
+                  <li>Health monitoring and decision support</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-inner">
+                <div class="card-label">evaluation</div>
+                <h3 class="card-title">Technology evaluation reports</h3>
+                <ul class="card-list">
+                  <li>Technical evaluation of concepts and prototypes</li>
+                  <li>Economic and business case assessments</li>
+                  <li>Environmental impact and sustainability views</li>
+                  <li>Independent second-opinion studies</li>
+                  <li>Strategic recommendations for decision-makers</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="contact-section" id="contact">
+        <div class="container">
+          <div class="contact-inner">
+            <div class="contact-text">
+              <h3>Contact Satistica</h3>
+              <p>
+                If you would like to discuss a project, funding opportunity or a
+                specific technical question, please send us an email and we will
+                get back to you with a clear next step.
+              </p>
+            </div>
+            <div class="contact-actions">
+              <a class="email-link" href="mailto:admin@satistica.com">
+                <span>✉</span>
+                <span>admin@satistica.com</span>
+              </a>
+              <span>Primary contact for enquiries, collaborations and bids.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>© Satistica. All rights reserved.</span>
+        <span>Systems engineering · data analytics · AI for modern industry</span>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
